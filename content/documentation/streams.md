@@ -100,7 +100,7 @@ const clickCountStream = clickStream
   .fold((count, x) => count + x, 0);
 ```
 
-[简洁才是王道](http://www.paulgraham.com/power.html)，*xstream* 运算符表明，你可以通过一些适当的运算符完成很多事。只需要约 [26 个运算符](https://github.com/staltz/xstream#methods-and-operators)，就可以构建 Cycle.js 应用程序中几乎所有的编程模式。
+[简洁才是王道](http://www.paulgraham.com/power.html)，*xstream* 运算子表明，你可以通过一些适当的运算子完成很多事。只需要约 [26 个运算子](https://github.com/staltz/xstream#methods-and-operators)，就可以构建 Cycle.js 应用程序中几乎所有的编程模式。
 
 了解响应式编程的基础知识是使用 Cycle.js 完成工作的先决条件。我们不会在本网站提供 RxJS 或者 *xstream* 相关的教学，如果你需要学习更多，我们会推荐一些很棒的学习资源。*xstream* 和 *RxJS* 很类似，所以下列资源都很适用：
 
@@ -110,7 +110,7 @@ const clickCountStream = clickStream
 - [Learn Rx](http://reactivex.io/learnrx/)：由 Jafar Husain 提供的数组和 Observables 的互动教程
 - [RxJS lessons at Egghead.io](https://egghead.io/technologies/rx)
 - [RxJS GitBook](http://xgrommx.github.io/rx-book/)
-- [RxMarbles](http://rxmarbles.com/)：RxJS 运算符的交互图，由 Cycle.js 创建
+- [RxMarbles](http://rxmarbles.com/)：RxJS 运算子的交互图，由 Cycle.js 创建
 - [Async JavaScript at Netflix](https://www.youtube.com/watch?v=XRYN2xt11Ek)：Jafar Husain 介绍 RxJS 的视频
 
 ## Cycle.js 中的 Streams
@@ -134,7 +134,7 @@ function computer(userEventsStream) {
 }
 ```
 
-如果我们能在 `human()` 函数中在做同样的事，这会很优雅。但实际上，我们不能简单地通过串联一些运算符来实现，因为我们需要离开 JavaScript 的环境，去影响外部世界。从概念上来讲，实际上 `human()` 函数是可以存在的，我们会使用 *driver* 去影响外部世界。
+如果我们能在 `human()` 函数中在做同样的事，这会很优雅。但实际上，我们不能简单地通过串联一些运算子来实现，因为我们需要离开 JavaScript 的环境，去影响外部世界。从概念上来讲，实际上 `human()` 函数是可以存在的，我们会使用 *driver* 去影响外部世界。
 
 [Drivers](drivers.html) 是外部世界的适配器，每个 driver 都代表外部效果的一个方面。例如，DOM Driver 接受计算机生成的“屏幕”流，并返回鼠标和键盘事件的流。在这两者之间，DOM Driver 函数会产生 “*写*” 副作用去渲染 DOM 中的元素，并捕捉 “*读*” 的副作用去监测用户交互。这样，DOM Driver 函数就可以代表用户行为了。"driver" 这个名字基于操作系统驱动程序，并且跟它具有类似的作用：在设备和软件之间架设桥梁。
 
